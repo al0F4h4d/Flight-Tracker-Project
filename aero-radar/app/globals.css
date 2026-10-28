@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Base Reset & Dark Theme
+   ============================================================ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  @apply bg-radar-bg text-slate-100 overflow-hidden;
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   Custom Radar Scrollbar
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-radar-panel;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-radar-border rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-radar-muted;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1F2937 #111827;
+}
+
+/* ============================================================
+   Glassmorphism Panel
+   ============================================================ */
+@layer utilities {
+  .glass-panel {
+    background: rgba(17, 24, 39, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(31, 41, 55, 0.85);
+    border-radius: 12px;
+  }
+}
+
+/* ============================================================
+   Leaflet Radar Map Customizations
+   ============================================================ */
+.leaflet-container {
+  background-color: #0B0F19 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Dark Aviation Radar styling for OpenStreetMap tiles (100% Free, NO API KEY) */
+.dark-radar-tiles {
+  filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(90%) !important;
+}
+
+.aircraft-marker-container {
+  background: transparent !important;
+  border: none !important;
+}
+
+.radar-tooltip {
+  background: rgba(11, 15, 25, 0.95) !important;
+  border: 1px solid #1F2937 !important;
+  color: #F1F5F9 !important;
+  font-size: 11px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  padding: 4px 8px !important;
+}
+.radar-tooltip::before {
+  border-top-color: #1F2937 !important;
+}
+
+.leaflet-bar {
+  border: 1px solid #1F2937 !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+.leaflet-bar a {
+  background-color: rgba(17, 24, 39, 0.9) !important;
+  color: #94A3B8 !important;
+  border-bottom: 1px solid #1F2937 !important;
+}
+.leaflet-bar a:hover {
+  background-color: #1F2937 !important;
+  color: #06B6D4 !important;
+}
